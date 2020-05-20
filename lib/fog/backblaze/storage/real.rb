@@ -384,7 +384,7 @@ class Fog::Backblaze::Storage::Real
                                 "b2_key_id and b2_key_token"
     end
 
-    @auth_response = json_req(:get, "https://api.backblazeb2.com/b2api/v1/b2_authorize_account",
+    @auth_response = json_req(:get, "https://api.backblazeb2.com/b2api/v2/b2_authorize_account",
       headers: {
         "Authorization" => "Basic " + Base64.strict_encode64(auth_string)
       },
@@ -536,7 +536,7 @@ class Fog::Backblaze::Storage::Real
       options[:body] = ::JSON.generate(options[:body])
     end
 
-    request_url = options.delete(:url) || "#{auth_response['apiUrl']}/b2api/v1/#{command}"
+    request_url = options.delete(:url) || "#{auth_response['apiUrl']}/b2api/v2/#{command}"
 
     #pp [:b2_command, request_url, options]
 

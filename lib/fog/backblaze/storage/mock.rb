@@ -12,7 +12,7 @@ class Fog::Backblaze::Storage::Mock
   def initialize(options={})
     @b2_account_id = options[:b2_account_id]
     @b2_account_token = options[:b2_account_token]
-    @path = '/v1/AUTH_1234'
+    @path = '/v2/AUTH_1234'
     @containers = {}
   end
 
