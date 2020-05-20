@@ -487,7 +487,7 @@ class Fog::Backblaze::Storage::Real
 
     extra_headers = {}
     if options[:content_type]
-      extra_headers['Content-Type'] = options[:content_type]
+      extra_headers[:'Content-Type'] = options[:content_type]
     end
 
     if options[:last_modified]
@@ -496,16 +496,16 @@ class Fog::Backblaze::Storage::Real
       else
         value
       end
-      extra_headers['X-Bz-Info-src_last_modified_millis'] = value
+      extra_headers[:'X-Bz-Info-src_last_modified_millis'] = value
     end
 
     if options[:content_disposition]
-      extra_headers['X-Bz-Info-b2-content-disposition'] = options[:content_disposition]
+      extra_headers[:'X-Bz-Info-b2-content-disposition'] = options[:content_disposition]
     end
 
     if options[:extra_headers]
       options[:extra_headers].each do |header_key, header_value|
-        extra_headers["X-Bz-Info-#{header_key}"] = header_value
+        extra_headers[:"X-Bz-Info-#{header_key}"] = header_value
       end
     end
 
